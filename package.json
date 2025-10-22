@@ -1,9 +1,10 @@
 {
   "name": "fripini.tn",
   "version": "0.0.0",
-  "private": true,
+  "private": false,
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
