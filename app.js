@@ -3,17 +3,20 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const http = require('http'); // ADD THIS LINE
+const http = require('http') // ADD THIS LINE
 
 
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+require('dotenv').config() // ADD THIS LINE TO IMPORT DOTENV
+
+
 var app = express(); 
   
 
-app.use(loger('dev'));
+app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -39,4 +42,4 @@ app.use(function(err, req, res, next) {
 });
 
 const serveur = http.createServer(app) // MODIFY THIS LINE
-serveur.listen(5000, () =>{console.log("app is running on port 5000")})
+serveur.listen(process.env.Port,() =>{console.log("app is running on port 5000")})
